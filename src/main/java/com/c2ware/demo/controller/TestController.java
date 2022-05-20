@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Objects;
 
 @RestController
 @RequestMapping("/api/v1/test")
@@ -37,6 +38,13 @@ public class TestController {
     public String deleteCustomer(@PathVariable(value = "id", required = true) Long id) {
         testService.deleteCustomer(id);
 
-        return "Success";
+        return id + "Success";
+    }
+
+    @DeleteMapping(path = "/customer/deleteAll")
+    public String deleteAllCustomer(String ms) {
+        testService.deleteAllCustomer(ms);
+
+        return ms;
     }
 }

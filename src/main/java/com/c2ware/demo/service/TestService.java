@@ -73,4 +73,16 @@ public class TestService {
     public void deleteCustomer(Long id) {
         customerRepository.deleteById(id);
     }
+
+    public String deleteAllCustomer(String ms) {
+        List<CustomerEntity> customers = customerRepository.findAll();
+
+        if (!List.of().isEmpty()) {
+            return "삭제할 데이터가 없습니다.";
+        } else {
+            customerRepository.deleteAll();
+            return "모든 데이터를 삭제하였습니다.";
+        }
+
+    }
 }
