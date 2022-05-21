@@ -42,9 +42,7 @@ public class TestController {
     }
 
     @DeleteMapping(path = "/customer/deleteAll")
-    public String deleteAllCustomer(String ms) {
-        testService.deleteAllCustomer(ms);
-
-        return ms;
+    public String deleteAllCustomer() {
+        return testService.deleteAllCustomer();
     }
 }
